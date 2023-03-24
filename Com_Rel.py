@@ -464,8 +464,10 @@ def show_dfit():
 #                 data = make_right_censored_data(b)
                 results = Fit_Everything(failures=data.failures, right_censored=data.right_censored)
                 st.write (" The best distribution fit is : ", results.best_distribution_name)
-                st.write ( results.best_distribution.parameters)
-            
+                #st.write ( results.best_distribution.parameters)
+                st.write (" Alpha value is : ", results.best_distribution.parameters[0])
+                st.write ( " Beta Value is : ",results.best_distribution.parameters[1])
+                
         #   #raw_data = a
            # data = make_right_censored_data(raw_data, threshold=14)
            # results = Fit_Everything(failures=data.failures, right_censored=data.right_censored)
