@@ -922,7 +922,7 @@ def show_assistant_comp_config_File():
     
 #=================================
     
-tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Reliability Plots and Stat.', 
+tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Reliability Plots', 
                    'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time','Components Definition', 'Configuration Definition', 
                                                                                                                   'Monte Carlo Calculation','Sensitivity Analysis'])
 st.header('Component Reliability Calcutaion')
