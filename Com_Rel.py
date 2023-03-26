@@ -24,7 +24,7 @@ import json
 #================================= Part1 =================================#
 
 def title1():
-    distName = st.session_state.comp_rel_tab
+    distName = st.session_state.distName_title1
     st.header('Component Reliability')
     st.title('Component Reliability Calculation')
     
@@ -938,7 +938,7 @@ comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_c
 with comp_rel_tab:
     st.header('Component Reliability')
     st.title('Component Reliability Calculation') 
-    x = st.radio('Component Reliability',on_change=title1,  key='comp_rel_tab')
+    x = st.radio('Component Reliability',on_change=title1,  key='distName_title1')
 
 with tab_plots:
     
