@@ -930,9 +930,8 @@ comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_c
 
 
 with comp_rel:
-    st.header('Component Reliability Calcutaion')
-    original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Component Reliability Calcutaion</p>'
-    st.markdown(original_title, unsafe_allow_html=True)
+    st.header('Component Reliability')
+    st.title('Component Reliability Calculation')
     
 
 with tab_plots:
@@ -985,10 +984,8 @@ with tab_ORT:
              'Gumbel'], on_change=show_ort, key='distName_ort')
     
 with sys_rel:
-    st.header('System Reliability Calcutaion')
-    original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">System Reliability Calcutaion</p>'
-    st.markdown(original_title, unsafe_allow_html=True)
-    
+    st.header('System Reliability')
+    st.title('System Reliability Calculation')
 
    
 with tab_comp:
