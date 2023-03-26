@@ -930,7 +930,6 @@ tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, tab_comp, tab_conf, tab_
     'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'Components Definition', 
                  'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
 
-st.header('Component Reliability')
 
 with tab_plots:
     
@@ -981,7 +980,7 @@ with tab_ORT:
              'Loglogistic',
              'Gumbel'], on_change=show_ort, key='distName_ort')
     
-st.title('System Reliability Calculation')
+
 
    
 with tab_comp:
