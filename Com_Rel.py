@@ -23,7 +23,7 @@ import json
 
 #================================= Part1 =================================#
 
-def title1:
+def title1():
     distName = st.session_state.comp_rel_tab
     st.header('Component Reliability')
     st.title('Component Reliability Calculation')
