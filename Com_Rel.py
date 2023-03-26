@@ -931,8 +931,6 @@ comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_c
 
 with comp_rel:
     st.header('Component Reliability Calcutaion')
-    new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">Component Reliability Calcutaion</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
 
 with tab_plots:
     
@@ -985,8 +983,7 @@ with tab_ORT:
     
 with sys_rel:
     st.header('System Reliability Calcutaion')
-    new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">System Reliability Calcutaion</p>'
-    st.markdown(new_title, unsafe_allow_html=True)
+
    
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
