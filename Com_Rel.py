@@ -931,7 +931,7 @@ def show_sys_rel():
     st.subheader('System Reliability Calculation')
 #=================================
     
-sys_rel,tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT,comp_rel tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['System Reliability ',
+sys_rel,tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT,comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['System Reliability',
     'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'Components Reliability','Components Definition', 
                  'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
 
