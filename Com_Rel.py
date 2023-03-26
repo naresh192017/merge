@@ -22,6 +22,12 @@ import json
 #=================================
 
 #================================= Part1 =================================#
+
+def title1:
+    distName = st.session_state.comp_rel_tab
+    st.header('Component Reliability')
+    st.title('Component Reliability Calculation')
+    
 def show_dist():
     distName = st.session_state.distName_tab
  
@@ -929,10 +935,10 @@ comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_c
                  'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
 
 
-with comp_rel:
+with comp_rel_tab:
     st.header('Component Reliability')
-    st.title('Component Reliability Calculation')
-    
+    st.title('Component Reliability Calculation') 
+    x = st.radio('Component Reliability', key='distName_tab')
 
 with tab_plots:
     
