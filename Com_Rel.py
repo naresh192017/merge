@@ -924,10 +924,16 @@ def show_assistant_comp_config_File():
     
 #=================================
     
-tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Reliability Plots', 
-                   'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time','Components Definition', 'Configuration Definition', 
-                                                                                                                  'Monte Carlo Calculation','Sensitivity Analysis'])
-st.header('Component Reliability Calcutaion')
+comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Component Reliability',
+    'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'System Reliability', 'Components Definition', 
+                 'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
+
+
+with comp_rel:
+    st.header('Component Reliability Calcutaion')
+    new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">Component Reliability Calcutaion</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
+
 with tab_plots:
     
     a = st.radio('To view the reliability plots and statistics related to your component, please select its distribution and enter parameters. Then choose your desire plot to show:', ['Weibull' ,
@@ -976,6 +982,11 @@ with tab_ORT:
              'Beta',
              'Loglogistic',
              'Gumbel'], on_change=show_ort, key='distName_ort')
+    
+with sys_rel:
+    st.header('System Reliability Calcutaion')
+    new_title = '<p style="font-family:sans-serif; color:Green; font-size: 42px;">System Reliability Calcutaion</p>'
+    st.markdown(new_title, unsafe_allow_html=True)
    
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
