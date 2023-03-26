@@ -23,10 +23,6 @@ import json
 
 #================================= Part1 =================================#
 
-def title1():
-    distName = st.session_state.distName_title1
-    st.header('Component Reliability')
-    st.title('Component Reliability Calculation')
     
 def show_dist():
     distName = st.session_state.distName_tab
@@ -930,15 +926,11 @@ def show_assistant_comp_config_File():
     
 #=================================
     
-comp_rel, tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, sys_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Component Reliability',
-    'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'System Reliability', 'Components Definition', 
+tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs([
+    'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'Components Definition', 
                  'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
 
-
-with comp_rel_tab:
-    st.header('Component Reliability')
-    st.title('Component Reliability Calculation') 
-    x = st.radio('Component Reliability',on_change=title1,  key='distName_title1')
+st.header('Component Reliability')
 
 with tab_plots:
     
@@ -989,9 +981,7 @@ with tab_ORT:
              'Loglogistic',
              'Gumbel'], on_change=show_ort, key='distName_ort')
     
-with sys_rel:
-    st.header('System Reliability')
-    st.title('System Reliability Calculation')
+st.title('System Reliability Calculation')
 
    
 with tab_comp:
