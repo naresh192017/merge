@@ -926,11 +926,11 @@ def show_assistant_comp_config_File():
 def show_comp_rel():
     st.write("-----------------")
     st.title('Components Reliability Calculation')
-    st.write("Scroll right for Calculation ->")
+    st.subheader("Scroll right for Calculation ➡️")
 def show_sys_rel():
     st.write("-----------------")
     st.title('System Reliability Calculation')
-    st.write("Scroll right for Calculation ->")
+    st.subheader("Scroll right for Calculation ➡️")
 #=================================
     
 sys_rel,tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT,comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['System Reliability',
