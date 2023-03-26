@@ -933,7 +933,7 @@ with comp_rel:
     st.header('Component Reliability Calcutaion')
     original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">Component Reliability Calcutaion</p>'
     st.markdown(original_title, unsafe_allow_html=True)
-    st.image(image, channels="BGR")
+    
 
 with tab_plots:
     
@@ -988,7 +988,7 @@ with sys_rel:
     st.header('System Reliability Calcutaion')
     original_title = '<p style="font-family:Courier; color:Blue; font-size: 20px;">System Reliability Calcutaion</p>'
     st.markdown(original_title, unsafe_allow_html=True)
-    st.image(image, channels="BGR")
+    
 
    
 with tab_comp:
