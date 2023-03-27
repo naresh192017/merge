@@ -672,8 +672,8 @@ def calculate(key, reliability):
     elif distName == 'Gumbel':
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
-    ttf = dist.inverse_SF(reliability) 
-    #ttf = dist.SF(reliability) 
+    #ttf = dist.inverse_SF(reliability) 
+    ttf = dist.SF(reliability) 
     return round (ttf, 3)
 
 def init_comp_data():
@@ -802,6 +802,7 @@ def Com_Sen():
         if key.startswith('c'):
             n = len(value)
             reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
+            
     st.json({"Reliability": reliability_sums})
     
 def show_comp_def_File():
