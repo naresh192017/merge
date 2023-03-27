@@ -672,9 +672,9 @@ def calculate(key, reliability):
     elif distName == 'Gumbel':
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
-    #ttf = dist.inverse_SF(reliability) 
-    ttf = dist.SF(reliability) 
-    return round (ttf, 3)
+    ttf = dist.inverse_SF(reliability) 
+    ttfr = dist.SF(reliability) 
+    return round (ttf, 3),round (ttfr, 3)
 
 def init_comp_data():
     iteration_count = st.session_state.iteration_count
@@ -685,11 +685,25 @@ def init_comp_data():
                 calculated_comps[key] = []
 
             reliability = random.random()
-            ttf = calculate(key, reliability)
+            ttf,ttfr = calculate(key, reliability)
             dist_values_dict = {'Reliability': reliability, 'TTF': ttf}
 
             calculated_comps[key].append(dist_values_dict)
 
+def init_comp_data_r():
+    iteration_count = st.session_state.iteration_count
+
+    for iteration in range(iteration_count):
+        for key in comp_def_data:
+            if key not in calculated_comps : 
+                calculated_comps[key] = []
+
+            reliability = random.random()
+            ttf,ttfr = calculate(key, reliability)
+            dist_values_dict = {'Reliability': reliability, 'TTF': ttfr}
+
+            calculated_comps[key].append(dist_values_dict)
+            
 def init_comp_relations():
     for key in comp_def_data:
         cmp_key = "'" + key + "'"
@@ -795,6 +809,9 @@ def Com_Sen():
     st.write("-----------------")
     st.write("Component Values:")
     st.json(calculated_comps)
+    
+    
+    init_comp_data_r()
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
