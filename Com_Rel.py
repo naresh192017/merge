@@ -826,9 +826,9 @@ def Com_Sen():
         percentage =  (value / product)  
         st.json({key: percentage})
         
-    component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    st.json(component_probabilities)
-    #st.json(reliability_sums)
+#     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
+#     st.json(component_probabilities)
+    st.json(reliability_sums)
     
 def show_comp_def_File():
 
