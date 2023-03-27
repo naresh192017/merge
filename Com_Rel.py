@@ -830,8 +830,10 @@ def Com_Sen():
     
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
     st.write(product)
-    st.json(component_probabilities)
-    st.json(reliability_sums)
+    #st.json(component_probabilities)
+    for key, value in component_probabilities.items():
+        st.json({key: value})
+    #st.json(reliability_sums)
     
 def show_comp_def_File():
 
