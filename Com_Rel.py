@@ -762,7 +762,7 @@ def show_ttf():
 
 def Com_Sen():
 
-    init_comp_data()
+    init_comp_data_r()
 
     ttf_list = []
     iteration_count = st.session_state.iteration_count
@@ -805,7 +805,7 @@ def Com_Sen():
     plt.hist(ttf_list)
     plt.savefig('test.png')
     plt.show()
-    init_comp_data_r()
+   
     st.write("-----------------")
     st.write("Component Values:")
     st.json(calculated_comps)
