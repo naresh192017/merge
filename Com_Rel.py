@@ -800,7 +800,7 @@ def Com_Sen():
     ttf_sums = {}
     for key, value in data.items():
         if key.startswith('c'):
-            reliability_sums[key] = sum(d["Reliability"] for d in value)
+            reliability_sums[key] = sum(d["Reliability"] for d in value)/len(d["Reliability"] for d in value)
     st.json({"Reliability": reliability_sums})
     
 def show_comp_def_File():
