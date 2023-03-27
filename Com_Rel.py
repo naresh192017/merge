@@ -736,8 +736,9 @@ def show_ttf():
 
    
     plt.hist(ttf_list)
+    st.pyplot()
     plt.savefig('test.png')
-    plt.show()
+    
 
     # st.write("-----------------")
     # st.write("Component Values:")
