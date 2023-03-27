@@ -805,7 +805,7 @@ def Com_Sen():
     plt.hist(ttf_list)
     plt.savefig('test.png')
     plt.show()
-
+    init_comp_data_r()
     st.write("-----------------")
     st.write("Component Values:")
     st.json(calculated_comps)
