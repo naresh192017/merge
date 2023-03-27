@@ -809,7 +809,15 @@ def Com_Sen():
     st.write("-----------------")
     st.write("Component Values:")
     st.json(calculated_comps)
-    
+    data = calculated_comps
+    reliability_sums = {}
+    ttf_sums = {}
+    for key, value in data.items():
+        if key.startswith('c'):
+            n = len(value)
+            reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
+            
+    st.json({"Reliability": reliability_sums})
     
     init_comp_data_r()
     data = calculated_comps
