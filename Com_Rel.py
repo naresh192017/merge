@@ -794,7 +794,7 @@ def Com_Sen():
 
     st.write("-----------------")
     st.write("Component Values:")
-    #st.json(calculated_comps)
+    st.json(calculated_comps)
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
