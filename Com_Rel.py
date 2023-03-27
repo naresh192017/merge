@@ -921,7 +921,7 @@ def show_assistant_comp_config_File():
 
             comp_c_file.close()
 
-            st.write('File ', comp_config_filename, ' was saved.')    
+            st.write('File ', comp_config_filename, ' was saved.')   
     
 def show_comp_rel():
     st.write("-----------------")
