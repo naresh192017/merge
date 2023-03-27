@@ -829,7 +829,7 @@ def Com_Sen():
     system_reliability = product
     
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    st.json(product)
+    st.write(product)
     st.json(component_probabilities)
     st.json(reliability_sums)
     
