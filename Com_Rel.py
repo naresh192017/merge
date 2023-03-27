@@ -823,7 +823,7 @@ def Com_Sen():
             product *= reliability_sums[key]
     
     for key, value in reliability_sums.items():
-        percentage = 100 * value / product      
+        percentage = 1- (value / product)      
         st.json({key: percentage})
     
 def show_comp_def_File():
