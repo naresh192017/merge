@@ -736,7 +736,7 @@ def show_ttf():
 
    
     plt.hist(ttf_list)
-    st.pyplot()
+    #st.pyplot()
     plt.savefig('test.png')
     
 
