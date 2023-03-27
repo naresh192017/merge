@@ -734,6 +734,7 @@ def show_ttf():
     e = (  max_time_in_list - min_time_in_list )/2
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
+    st.write('
 
    
     plt.hist(ttf_list)
@@ -793,8 +794,15 @@ def Com_Sen():
 
     st.write("-----------------")
     st.write("Component Values:")
-    st.json(calculated_comps)
-
+    #st.json(calculated_comps)
+    data = calculated_comps
+    reliability_sums = {}
+    ttf_sums = {}
+    for key, value in data.items():
+        if key.startswith('c'):
+            reliability_sums[key] = sum(d["Reliability"] for d in value)
+    st.json({"Reliability": reliability_sums})
+    
 def show_comp_def_File():
 
     st.button(label='Add New Component', on_click=show_add_comp, args=('', ))
