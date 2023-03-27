@@ -806,9 +806,9 @@ def Com_Sen():
     plt.savefig('test.png')
     plt.show()
    
-    st.write("-----------------")
-    st.write("Component Values:")
-    st.json(calculated_comps)
+#     st.write("-----------------")
+#     st.write("Component Values:")
+#     st.json(calculated_comps)
     
     
     init_comp_data_r()
@@ -820,15 +820,16 @@ def Com_Sen():
         if key.startswith('c'):
             n = len(value)
             reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
+            total_reliability *= reliability_sums[key]
             
     product = sum(reliability_sums.values())
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    st.write(product)
-    #st.json(component_probabilities)
-#     for key, value in component_probabilities.items():
-#         st.json({key: value})
-    st.json(reliability_sums)
+    st.write("System Reliability:",1-total_reliability)
+    
+    st.write("-----------------")
+    st.write("Component values")
     st.json(component_probabilities)
+    
 def show_comp_def_File():
 
     st.button(label='Add New Component', on_click=show_add_comp, args=('', ))
