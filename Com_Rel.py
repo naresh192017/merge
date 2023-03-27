@@ -673,7 +673,7 @@ def calculate(key, reliability):
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
     ttf = dist.inverse_SF(reliability) 
-    ttfr = dist.SF(reliability) 
+    comp_rel = dist.SF(ttf) 
     return round (ttf, 3),round (ttfr, 3)
 
 def init_comp_data():
@@ -824,7 +824,7 @@ def Com_Sen():
             
     product = sum(reliability_sums.values())
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    st.write("System Reliability:",1-total_reliability)
+    st.write("Non-Reliability:",1-total_reliability)
     
     st.write("-----------------")
     st.write("Component values")
