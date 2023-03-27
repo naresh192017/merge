@@ -820,7 +820,7 @@ def Com_Sen():
         if key.startswith('c'):
             n = len(value)
             reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
-            product *= reliability_sums[key]
+            product += reliability_sums[key]
     
 #     for key, value in reliability_sums.items():
 #         percentage =  (value / (1-product))  
