@@ -820,12 +820,12 @@ def Com_Sen():
         if key.startswith('c'):
             n = len(value)
             reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
-            product *= reliability_sums[key]
+            product *= reliability_sums[value]
     
     for key, value in reliability_sums.items():
         percentage = 1- (value / product)      
-        #st.json({key: percentage})
-        st.json(reliability_sums)
+    st.json({key: percentage})
+    st.json(reliability_sums)
     
 def show_comp_def_File():
 
