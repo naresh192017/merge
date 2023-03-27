@@ -672,8 +672,8 @@ def calculate(key, reliability):
     elif distName == 'Gumbel':
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
-    #ttf = dist.inverse_SF(reliability) 
-    ttf = dist.SF(reliability) 
+    ttf = dist.inverse_SF(reliability) 
+    #ttf = dist.SF(reliability) 
     return round (ttf, 3)
 
 def init_comp_data():
