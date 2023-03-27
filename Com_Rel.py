@@ -815,12 +815,16 @@ def Com_Sen():
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
+    product = 1
     for key, value in data.items():
         if key.startswith('c'):
             n = len(value)
             reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
-            
-    st.json({"Reliability": reliability_sums})
+            product *= reliability_sums[key]
+    
+    for key, value in reliability_sums.items():
+        percentage = 100 * value / product      
+        st.json({key: percentage})
     
 def show_comp_def_File():
 
