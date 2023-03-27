@@ -933,12 +933,12 @@ def show_sys_rel():
     st.subheader("Scroll right for Calculation ➡️")
 #=================================
     
-sys_rel,tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT,comp_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['System Reliability',
-    'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'Components Reliability','Components Definition', 
+comp_rel,tab_plots, tab_reliability, tab_ttf, tab_dfit, tab_ORT,sys_rel, tab_comp, tab_conf, tab_montc, tab_sen = st.sidebar.tabs(['Components Reliability',
+    'Reliability Plots', 'Reliability','Time to Failure', 'Distribution Fitter', 'Optimal Replacement Time', 'System Reliability','Components Definition', 
                  'Configuration Definition'  ,'Monte Carlo Calculation','Sensitivity Analysis'])
 
-with sys_rel:
-    st.button('System Reliability ', on_click=show_sys_rel)
+with comp_rel:
+    st.button('Components Reliability ', on_click=show_comp_rel)
 
 with tab_plots:
     
@@ -989,8 +989,9 @@ with tab_ORT:
              'Loglogistic',
              'Gumbel'], on_change=show_ort, key='distName_ort')
     
-with comp_rel:
-    st.button('Components Reliability ', on_click=show_comp_rel)
+   
+with sys_rel:
+    st.button('System Reliability ', on_click=show_sys_rel)
     
 with tab_comp:
     st.write('Steps for defining a componet:  \n1- Click on the Enter your component key.  \n2- Click on Add New Component key.    \n3- Type a unique name for your component.     \n4- Choose the component distribution from the list.     \n5- Enter your Parameters.      \n6- Click on Add/Edit componet.       \n7- Clike on Edit button for editing an existing component.')
