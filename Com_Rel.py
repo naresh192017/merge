@@ -825,16 +825,14 @@ def Com_Sen():
 #     for key, value in reliability_sums.items():
 #         percentage =  (value / (1-product))  
 #         st.json({key: percentage})
-
-    system_reliability = product
     
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
     st.write(product)
     #st.json(component_probabilities)
 #     for key, value in component_probabilities.items():
 #         st.json({key: value})
+    st.json(reliability_sums)
     st.json(component_probabilities)
-    
 def show_comp_def_File():
 
     st.button(label='Add New Component', on_click=show_add_comp, args=('', ))
