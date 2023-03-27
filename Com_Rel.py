@@ -833,7 +833,7 @@ def Com_Sen():
     #st.json(component_probabilities)
 #     for key, value in component_probabilities.items():
 #         st.json({key: value})
-    st.json(reliability_sums)
+    st.json(component_probabilities)
     
 def show_comp_def_File():
 
