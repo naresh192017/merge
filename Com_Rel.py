@@ -823,7 +823,7 @@ def Com_Sen():
             product *= reliability_sums[key]
     
     for key, value in reliability_sums.items():
-        percentage =  (value / product)  
+        percentage =  (value / (1-product))  
         st.json({key: percentage})
         
 #     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
