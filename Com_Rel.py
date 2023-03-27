@@ -815,7 +815,7 @@ def Com_Sen():
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
-    product = 1
+    total_reliability = 1
     for key, value in data.items():
         if key.startswith('c'):
             n = len(value)
