@@ -907,8 +907,8 @@ def Com_Sen():
     for key, value in data.items():
         if key.startswith('c'):
             n = len(value)
-            reliability_sums[key] = reliability_sums[value]
-    st.json(reliability_sums)        
+            #reliability_sums[key] = reliability_sums[value]
+    reliability_sums = data       
     for key, value in reliability_sums.items():
         if key.startswith('c'):
             p_0 = value
