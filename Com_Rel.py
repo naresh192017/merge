@@ -673,8 +673,8 @@ def calculate(key, reliability):
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
     ttf = dist.inverse_SF(reliability) 
-    comp_rel = dist.SF(ttf) 
-    return round (ttf, 3),round (ttfr, 3)
+    comp_rel = dist.SF(reliability) 
+    return round (ttf, 3),round (comp_rel, 3)
 
 def init_comp_data():
     iteration_count = st.session_state.iteration_count
@@ -699,8 +699,8 @@ def init_comp_data_r():
                 calculated_comps[key] = []
 
             reliability = random.random()
-            ttf,ttfr = calculate(key, reliability)
-            dist_values_dict = {'Reliability': reliability, 'TTF': ttfr}
+            ttf,comp_rel = calculate(key, reliability)
+            dist_values_dict = {'Reliability': reliability, 'TTF': comp_rel}
 
             calculated_comps[key].append(dist_values_dict)
             
