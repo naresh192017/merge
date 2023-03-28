@@ -689,7 +689,7 @@ def init_comp_data():
             dist_values_dict = {'Reliability': reliability, 'TTF': ttf}
 
             calculated_comps[key].append(dist_values_dict)
-            return iteration_count,sf
+           
             
 
 def init_comp_data_r():
@@ -750,6 +750,14 @@ def show_ttf():
     e = (  max_time_in_list - min_time_in_list )/2
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
+    
+    
+    comp = comp_def_data[key]
+    distName = comp['dist']
+    param1 = comp['param1']
+    param2 = comp['param2']
+    dist = Weibull_Distribution(alpha = param1, beta = param2)
+    sf = dist.SF(int(ttf))
     st.write('Reliability:',sf)
   
 
