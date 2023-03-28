@@ -712,7 +712,7 @@ def init_comp_relations():
         comp_relations[cmp_key] = cmp_key
  
 def show_ttf():
-    iteration_count,sf = init_comp_data()
+    init_comp_data()
 
     ttf_list = []
     #iteration_count = st.session_state.iteration_count
