@@ -773,29 +773,24 @@ def show_ttf():
     # st.write("Component Values:")
     # st.json(calculated_comps)
     
-# import ast
 
-# calculation_method_str = "Parallel(Serial('c1','c2'), Serial('c3','c4'))"
-# calculation_method_ast = ast.parse(calculation_method_str)
 
-# def transform(node):
-#     if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
-#         # If the node is a function call with a name as the function,
-#         # replace it with a list containing the name and the transformed arguments.
-#         return [node.func.id] + [transform(arg) for arg in node.args]
-#     elif isinstance(node, ast.Call):
-#         # If the node is a function call with something other than a name as the function,
-#         # raise an error because we don't know how to handle it.
-#         raise ValueError(f"Unsupported function type: {type(node.func)}")
-#     elif isinstance(node, ast.Str):
-#         # If the node is a string, return its value.
-#         return node.s
-#     else:
-#         # If the node is something else, raise an error because we don't know how to handle it.
-#         raise ValueError(f"Unsupported node type: {type(node)}")
+def transform(node):
+    if isinstance(node, ast.Call) and isinstance(node.func, ast.Name):
+        # If the node is a function call with a name as the function,
+        # replace it with a list containing the name and the transformed arguments.
+        return [node.func.id] + [transform(arg) for arg in node.args]
+    elif isinstance(node, ast.Call):
+        # If the node is a function call with something other than a name as the function,
+        # raise an error because we don't know how to handle it.
+        raise ValueError(f"Unsupported function type: {type(node.func)}")
+    elif isinstance(node, ast.Str):
+        # If the node is a string, return its value.
+        return node.s
+    else:
+        # If the node is something else, raise an error because we don't know how to handle it.
+        raise ValueError(f"Unsupported node type: {type(node)}")
 
-# calculation_method_list = transform(calculation_method_ast.body[0].value)
-# print(calculation_method_list) 
 
 def comp_config_data_f(file):
     comp_config_filename =  'comp_config.txt'
@@ -874,6 +869,13 @@ def Com_Sen():
     st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
     st.write(comp_def_data)
+    
+    import ast
+
+    calculation_method_str = comp_def_data
+    calculation_method_ast = ast.parse(calculation_method_str)        
+    calculation_method_list = transform(calculation_method_ast.body[0].value)
+    st.write(calculation_method_list) 
     
 def show_comp_def_File():
 
