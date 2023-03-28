@@ -673,8 +673,8 @@ def calculate(key, reliability):
         dist = Gumbel_Distribution(mu = param1, sigma = param2)
 
     ttf = dist.inverse_SF(reliability) 
-    comp_rel = dist.SF(reliability) 
-    return round (ttf, 3),dist
+    sf = dist.SF(int(ttf))
+    return round (ttf, 3),sf
 
 def init_comp_data():
     iteration_count = st.session_state.iteration_count
@@ -748,7 +748,7 @@ def show_ttf():
     e = (  max_time_in_list - min_time_in_list )/2
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
-    st.write('Reliability:',dist.SF(e))
+    st.write('Reliability:',sf)
   
 
    
