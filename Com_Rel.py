@@ -884,11 +884,11 @@ def Com_Sen():
 #     st.json(calculated_comps)  
     
     st.write("-----------------")
-    st.write("Component values")
+    
     #st.json(component_probabilities)
     #st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
-    st.write("Component Config",comp_def_data)
+    st.write("Component Config:",comp_def_data)
     
 
     calculation_method_str = comp_def_data
