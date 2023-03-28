@@ -888,7 +888,7 @@ def Com_Sen():
     #st.json(component_probabilities)
     #st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
-    st.write("System Config",comp_def_data)
+    st.write("Component Config",comp_def_data)
     
 
     calculation_method_str = comp_def_data
@@ -902,6 +902,7 @@ def Com_Sen():
     reliability_sums = {}
     ttf_sums = {}
     sums = {}
+    b_factor = {}
     total_reliability = 1
     for key, value in data.items():
         if key.startswith('c'):
@@ -913,9 +914,14 @@ def Com_Sen():
             p_0 = value
             p_1 = 1.0 - p_0
             sums[key] = abs(p_1-p_0)
+            fv_factor[key] = sums[key]*value
             
-    product = sum(sums.values())
-    component_probabilities = {key: (value /product)*100 for key, value in sums.items()}
+    st.write("Fussell-Vesely factor")
+    st.json(fv_factor)
+    st.write("-----------------")
+    product = sum(fv_factor.values())
+    
+    component_probabilities = {key: (value /product)*100 for key, value in fv_factor.items()}
     st.write("Sensitivity")
     st.json(component_probabilities)
     
