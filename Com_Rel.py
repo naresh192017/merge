@@ -715,7 +715,7 @@ def show_ttf():
     init_comp_data()
 
     ttf_list = []
-    #iteration_count = st.session_state.iteration_count
+    iteration_count = st.session_state.iteration_count
     Confidence_Level=st.session_state.Confidence_Level
     Confidence_Level=Confidence_Level/100
     for iteration in range(iteration_count):
