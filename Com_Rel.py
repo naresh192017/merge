@@ -685,7 +685,7 @@ def init_comp_data():
                 calculated_comps[key] = []
 
             reliability = random.random()
-            ttf,dist = calculate(key, reliability)
+            ttf,sf = calculate(key, reliability)
             dist_values_dict = {'Reliability': reliability, 'TTF': ttf}
 
             calculated_comps[key].append(dist_values_dict)
