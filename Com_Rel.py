@@ -904,10 +904,9 @@ def Com_Sen():
     sums = {}
     fv_factor = {}
     total_reliability = 1
-    for key, value in data.items():
-        if key.startswith('c'):
-            n = len(value)
-            reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
+    
+    for key in data.keys():
+        reliability_sums[key] = data[key][0]["Reliability"]
     st.json(data)       
     st.json(reliability_sums)   
     for key, value in reliability_sums.items():
