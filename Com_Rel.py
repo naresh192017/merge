@@ -924,6 +924,9 @@ def Com_Sen():
     component_probabilities = {key: round((value /product)*100,2) for key, value in fv_factor.items()}
     st.write("Sensitivity")
     st.json(component_probabilities)
+    st.write("-----------------")
+    st.write("Other Resources")
+    st.markdown("[Link to Streamlit's official website](https://streamlit.io/)")
     
 def show_comp_def_File():
 
