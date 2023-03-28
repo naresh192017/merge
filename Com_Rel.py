@@ -830,6 +830,8 @@ def Com_Sen():
     st.write("Component values")
     st.json(component_probabilities)
     
+    st.json(data)
+    
 def show_comp_def_File():
 
     st.button(label='Add New Component', on_click=show_add_comp, args=('', ))
