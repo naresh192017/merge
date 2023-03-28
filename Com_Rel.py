@@ -799,6 +799,40 @@ def comp_config_data_f(file):
     comp_config_data = comp_config_file.read()
     return comp_config_data
 
+def serial_reliability(components):
+    """Calculates the reliability of a series of components."""
+    reliability = 1
+    for component in components:
+        reliability *= component
+    return reliability
+
+def parallel_reliability(components):
+    """Calculates the reliability of a parallel of components."""
+    reliability = 0
+    for component in components:
+        reliability += (1 - component)
+    return 1 - reliability
+
+def calculate_reliability(calculation_method):
+    """Calculates the reliability of a given calculation method."""
+    components = []
+    for component in calculation_method:
+        if isinstance(component, str):
+            # Assume component is a string identifier for a component's reliability.
+            # In a real implementation, we would need to look up the reliability of the
+            # component from a database or other data source.
+            reliability = 0.9  # example reliability value
+            components.append(reliability)
+        else:
+            # Assume component is a nested calculation method.
+            sub_components = calculate_reliability(component)
+            if "Serial" in str(component):
+                reliability = serial_reliability(sub_components)
+            elif "Parallel" in str(component):
+                reliability = parallel_reliability(sub_components)
+            components.append(reliability)
+    return components
+
 def Com_Sen():
 
     init_comp_data()
@@ -871,12 +905,14 @@ def Com_Sen():
     comp_def_data = comp_config_data_f('comp_config.txt')
     st.write(comp_def_data)
     
-    import ast
 
     calculation_method_str = comp_def_data
     calculation_method_ast = ast.parse(calculation_method_str)        
     calculation_method_list = transform(calculation_method_ast.body[0].value)
     st.write(calculation_method_list) 
+    calculation_method = calculation_method_list
+    result = parallel_reliability(calculate_reliability(calculation_method))
+    st.write("Reliability of whole system based on each component reliability",result)
     
 def show_comp_def_File():
 
