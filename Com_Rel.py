@@ -902,7 +902,7 @@ def Com_Sen():
     reliability_sums = {}
     ttf_sums = {}
     sums = {}
-    b_factor = {}
+    fv_factor = {}
     total_reliability = 1
     for key, value in data.items():
         if key.startswith('c'):
