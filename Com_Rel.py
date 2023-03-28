@@ -836,12 +836,12 @@ def Com_Sen():
             
     product = sum(reliability_sums.values())
     component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    st.write("Non-Reliability:",1-total_reliability)
+    
     
     st.write("-----------------")
     st.write("Component values")
     st.json(component_probabilities)
-    
+    st.json(reliability_sums)
    
     
 def show_comp_def_File():
