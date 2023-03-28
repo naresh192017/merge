@@ -909,7 +909,6 @@ def Com_Sen():
     calculation_method_str = comp_def_data
     calculation_method_ast = ast.parse(calculation_method_str)        
     calculation_method_list = transform(calculation_method_ast.body[0].value)
-    st.write(calculation_method_list) 
     calculation_method = calculation_method_list
     result = parallel_reliability(calculate_reliability(calculation_method))
     st.write("Reliability of whole system based on each component reliability",result)
