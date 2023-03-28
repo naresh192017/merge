@@ -690,8 +690,18 @@ def init_comp_data():
 
             calculated_comps[key].append(dist_values_dict)
            
-            
+def init_comp_sf():
+    iteration_count = st.session_state.iteration_count
 
+    for iteration in range(iteration_count):
+        for key in comp_def_data:
+            if key not in calculated_comps : 
+                calculated_comps[key] = []
+
+            reliability = random.random()
+            ttf,sf = calculate(key, reliability)
+    return sf
+            
 def init_comp_data_r():
     iteration_count = st.session_state.iteration_count
 
@@ -751,16 +761,8 @@ def show_ttf():
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
     
-    
-    comp = comp_def_data[key]
-    distName = comp['dist']
-    param1 = comp['param1']
-    param2 = comp['param2']
-    dist = Weibull_Distribution(alpha = param1, beta = param2)
-    sf = dist.SF(int(ttf))
-    st.write('Reliability:',sf)
-  
-
+    sf = init_comp_sf()
+    st.write ('System reliability:' , sf ) 
    
     plt.hist(ttf_list)
     #st.pyplot()
