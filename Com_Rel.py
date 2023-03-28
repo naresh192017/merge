@@ -748,7 +748,7 @@ def show_ttf():
     e = (  max_time_in_list - min_time_in_list )/2
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
-    st.write('Reliability:',dist.SF(e)
+    st.write('Reliability:',dist.SF(e))
   
 
    
