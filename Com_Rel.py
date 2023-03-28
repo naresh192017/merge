@@ -674,7 +674,7 @@ def calculate(key, reliability):
 
     ttf = dist.inverse_SF(reliability) 
     comp_rel = dist.SF(reliability) 
-    return round (ttf, 3),round (comp_rel, 3)
+    return round (ttf, 3),dist
 
 def init_comp_data():
     iteration_count = st.session_state.iteration_count
@@ -685,7 +685,7 @@ def init_comp_data():
                 calculated_comps[key] = []
 
             reliability = random.random()
-            ttf,ttfr = calculate(key, reliability)
+            ttf,dist = calculate(key, reliability)
             dist_values_dict = {'Reliability': reliability, 'TTF': ttf}
 
             calculated_comps[key].append(dist_values_dict)
@@ -748,6 +748,7 @@ def show_ttf():
     e = (  max_time_in_list - min_time_in_list )/2
     e= round (e,3)
     st.write ('System time to failure  is:' , e ) 
+    st.write('Reliability:',dist.SF(e)
   
 
    
@@ -811,7 +812,6 @@ def Com_Sen():
 #     st.json(calculated_comps)
     
     
-    init_comp_data_r()
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
@@ -830,7 +830,7 @@ def Com_Sen():
     st.write("Component values")
     st.json(component_probabilities)
     
-    st.json(data)
+   
     
 def show_comp_def_File():
 
