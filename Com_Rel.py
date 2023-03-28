@@ -873,7 +873,7 @@ def Com_Sen():
     st.json(component_probabilities)
     st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
-    st.json(comp_def_data)
+    st.write(comp_def_data)
     
 def show_comp_def_File():
 
