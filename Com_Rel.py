@@ -797,11 +797,13 @@ def show_ttf():
 # calculation_method_list = transform(calculation_method_ast.body[0].value)
 # print(calculation_method_list) 
 
-comp_data_def_filename =  'comp_def.json'
-comp_data_def_file = open(comp_data_def_filename)
-comp_def_data = json.load(comp_data_def_file)
+def comp_def_data_f(file):
+    comp_data_def_filename =  file #'comp_def.json'
+    comp_data_def_file = open(comp_data_def_filename)
+    comp_def_data = json.load(comp_data_def_file)
+    return comp_def_data
 
-def Com_Sen(comp_def_data):
+def Com_Sen():
 
     init_comp_data()
 
@@ -870,8 +872,8 @@ def Com_Sen(comp_def_data):
     st.write("Component values")
     st.json(component_probabilities)
     st.json(reliability_sums)
-    
-    st.write(comp_def_data)
+    comp_def_data = comp_def_data_f('comp_def.json')
+    st.json(comp_def_data)
     
 def show_comp_def_File():
 
