@@ -886,7 +886,7 @@ def Com_Sen():
     st.write("-----------------")
     st.write("Component values")
     #st.json(component_probabilities)
-    st.json(reliability_sums)
+    #st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
     st.write("System Config",comp_def_data)
     
