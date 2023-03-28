@@ -689,6 +689,8 @@ def init_comp_data():
             dist_values_dict = {'Reliability': reliability, 'TTF': ttf}
 
             calculated_comps[key].append(dist_values_dict)
+            return iteration_count,sf
+            
 
 def init_comp_data_r():
     iteration_count = st.session_state.iteration_count
@@ -710,10 +712,10 @@ def init_comp_relations():
         comp_relations[cmp_key] = cmp_key
  
 def show_ttf():
-    init_comp_data()
+    iteration_count,sf = init_comp_data()
 
     ttf_list = []
-    iteration_count = st.session_state.iteration_count
+    #iteration_count = st.session_state.iteration_count
     Confidence_Level=st.session_state.Confidence_Level
     Confidence_Level=Confidence_Level/100
     for iteration in range(iteration_count):
