@@ -926,7 +926,13 @@ def Com_Sen():
     st.json(component_probabilities)
     st.write("-----------------")
     st.write("Other Resources")
-    st.markdown("[Link to Streamlit's official website](https://streamlit.io/)")
+    st.markdown("[1. Probability Distributions Used in Reliability Engineering ](https://crr.umd.edu/sites/crr.umd.edu/files/Free%20Ebook%20Probability%20Distributions%20Used%20in%20Reliability%20Engineering.pdf)")
+    st.markdown("[2. Reliability Analytics Toolkit ](https://reliabilityanalyticstoolkit.appspot.com)")
+    st.markdown("[3. Reliability Python Documentation ](https://pypi.org/project/reliability/)")
+    st.markdown("[4. Streamlit Documentation ](https://docs.streamlit.io/library/get-started)")
+    st.markdown("[5. Weibull App introduction ](https://carlescg.shinyapps.io/abrem_app/)")
+    st.markdown("[6. Special Distribution Calculator ](https://www.randomservices.org/random/apps/SpecialCalculator.html)")
+    st.markdown("[7. Fault Tree Analyser ](https://www.fault-tree-analysis-software.com/fault-tree-analysis)")
     
 def show_comp_def_File():
 
