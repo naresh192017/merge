@@ -881,29 +881,14 @@ def Com_Sen():
    
 #     st.write("-----------------")
 #     st.write("Component Values:")
-#     st.json(calculated_comps)
-    
-    
-    data = calculated_comps
-    reliability_sums = {}
-    ttf_sums = {}
-    total_reliability = 1
-    for key, value in data.items():
-        if key.startswith('c'):
-            n = len(value)
-            reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
-            total_reliability *= reliability_sums[key]
-            
-    product = sum(reliability_sums.values())
-    component_probabilities = {key: value /product for key, value in reliability_sums.items()}
-    
+#     st.json(calculated_comps)  
     
     st.write("-----------------")
     st.write("Component values")
-    st.json(component_probabilities)
+    #st.json(component_probabilities)
     st.json(reliability_sums)
     comp_def_data = comp_config_data_f('comp_config.txt')
-    st.write(comp_def_data)
+    st.write("System Config",comp_def_data)
     
 
     calculation_method_str = comp_def_data
@@ -912,6 +897,21 @@ def Com_Sen():
     calculation_method = calculation_method_list
     result = parallel_reliability(calculate_reliability(calculation_method))
     st.write("Reliability of whole system based on each component reliability",result)
+    st.write("-----------------")
+    data = calculated_comps
+    reliability_sums = {}
+    ttf_sums = {}
+    total_reliability = 1
+    for key, value in data.items():
+        if key.startswith('c'):
+            p_0 = value
+            p_1 = 1.0 - p_0
+            reliability_sums[key] = abs(p_1-p_0)
+            
+    product = sum(reliability_sums.values())
+    component_probabilities = {key: (value /product)*100 for key, value in reliability_sums.items()}
+    st.write("Sensitivity")
+    st.json(component_probabilities)
     
 def show_comp_def_File():
 
