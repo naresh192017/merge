@@ -901,15 +901,21 @@ def Com_Sen():
     data = calculated_comps
     reliability_sums = {}
     ttf_sums = {}
+    sums = {}
     total_reliability = 1
     for key, value in data.items():
         if key.startswith('c'):
+            n = len(value)
+            reliability_sums[key] = sum(d["Reliability"] for d in value)/n if n > 0 else 0
+            
+    for key, value in reliability_sums.items():
+        if key.startswith('c'):
             p_0 = value
             p_1 = 1.0 - p_0
-            reliability_sums[key] = abs(p_1-p_0)
+            sums[key] = abs(p_1-p_0)
             
-    product = sum(reliability_sums.values())
-    component_probabilities = {key: (value /product)*100 for key, value in reliability_sums.items()}
+    product = sum(sums.values())
+    component_probabilities = {key: (value /product)*100 for key, value in sums.items()}
     st.write("Sensitivity")
     st.json(component_probabilities)
     
