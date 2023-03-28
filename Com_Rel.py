@@ -916,12 +916,12 @@ def Com_Sen():
             sums[key] = abs(p_1-p_0)
             fv_factor[key] = sums[key]*value
             
-    st.write("Fussell-Vesely factor")
-    st.json(fv_factor)
+#     st.write("Fussell-Vesely factor")
+#     st.json(fv_factor)
     st.write("-----------------")
     product = sum(fv_factor.values())
     
-    component_probabilities = {key: (value /product)*100 for key, value in fv_factor.items()}
+    component_probabilities = {key: round((value /product)*100,2) for key, value in fv_factor.items()}
     st.write("Sensitivity")
     st.json(component_probabilities)
     
